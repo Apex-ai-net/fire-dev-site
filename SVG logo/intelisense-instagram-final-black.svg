@@ -1,0 +1,90 @@
+<svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Purple gradients -->
+    <linearGradient id="purpleLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a16dd8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b57c2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleMid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3fb3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6b2f9b;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5a2489;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#451870;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Cyan gradients -->
+    <linearGradient id="cyanLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7fffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4dffff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cyanMid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1affff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00e6e6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cyanDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00a8a8;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Pure black background -->
+  <rect width="320" height="320" fill="#000000"/>
+  
+  <!-- Logo centered and sized for Instagram -->
+  <g transform="translate(160, 160)">
+    <g filter="url(#shadow)">
+      <!-- Scale up for better visibility on small profile -->
+      <g transform="scale(2.5)">
+        <!-- Bottom stem blocks -->
+        <g transform="translate(-18, 5)">
+          <!-- First stem block -->
+          <path d="M 0,15 L 12,8 L 12,22 L 0,29 Z" fill="url(#purpleDark)"/>
+          <path d="M 12,8 L 24,15 L 24,29 L 12,22 Z" fill="url(#purpleMid)"/>
+          <path d="M 0,15 L 12,8 L 24,15 L 12,22 Z" fill="url(#purpleLight)"/>
+          
+          <!-- Second stem block for depth -->
+          <g transform="translate(14, -7)">
+            <path d="M 0,15 L 12,8 L 12,22 L 0,29 Z" fill="url(#purpleDark)"/>
+            <path d="M 12,8 L 24,15 L 24,29 L 12,22 Z" fill="url(#purpleMid)"/>
+            <path d="M 0,15 L 12,8 L 24,15 L 12,22 Z" fill="url(#purpleLight)"/>
+          </g>
+        </g>
+        
+        <!-- Top dot blocks -->
+        <g transform="translate(-18, -25)" filter="url(#glow)">
+          <!-- First cyan block -->
+          <path d="M 0,15 L 12,8 L 12,22 L 0,29 Z" fill="url(#cyanDark)"/>
+          <path d="M 12,8 L 24,15 L 24,29 L 12,22 Z" fill="url(#cyanMid)"/>
+          <path d="M 0,15 L 12,8 L 24,15 L 12,22 Z" fill="url(#cyanLight)"/>
+          
+          <!-- Second cyan block -->
+          <g transform="translate(14, -7)">
+            <path d="M 0,15 L 12,8 L 12,22 L 0,29 Z" fill="url(#cyanDark)"/>
+            <path d="M 12,8 L 24,15 L 24,29 L 12,22 Z" fill="url(#cyanMid)"/>
+            <path d="M 0,15 L 12,8 L 24,15 L 12,22 Z" fill="url(#cyanLight)"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
