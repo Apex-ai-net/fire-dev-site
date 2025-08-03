@@ -998,7 +998,7 @@
         }
 
         .hero-title-animated::before {
-            content: 'When Others Can\'t. We Can.';
+            content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(
@@ -1011,12 +1011,10 @@
                 transparent 100%
             );
             background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             opacity: 0;
             animation: heroSweep 10s ease-in-out infinite;
             pointer-events: none;
+            z-index: -1;
         }
 
         .hero-title-animated::after {
