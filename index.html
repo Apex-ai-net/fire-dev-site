@@ -485,36 +485,40 @@
             position: absolute;
             pointer-events: none;
             mix-blend-mode: screen;
-                opacity: 0;
+            opacity: 0.6;
             transition: opacity 0.3s ease;
         }
 
         .accent-1 {
             top: 30%;
             left: 60%;
-            width: 200px;
-            height: 200px;
+            width: 120px;
+            height: 120px;
             background: radial-gradient(circle,
-                rgba(77, 208, 225, 0.15) 0%,
-                rgba(77, 208, 225, 0.05) 50%,
+                rgba(77, 208, 225, 0.4) 0%,
+                rgba(77, 208, 225, 0.2) 40%,
+                rgba(77, 208, 225, 0.1) 70%,
                 transparent 100%);
             border-radius: 50%;
-            filter: blur(20px);
+            filter: blur(8px);
             animation: accentFloat1 25s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(77, 208, 225, 0.3);
         }
 
         .accent-2 {
             bottom: 40%;
             right: 25%;
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             background: radial-gradient(circle,
-                rgba(171, 71, 188, 0.12) 0%,
-                rgba(171, 71, 188, 0.04) 50%,
+                rgba(171, 71, 188, 0.4) 0%,
+                rgba(171, 71, 188, 0.2) 40%,
+                rgba(171, 71, 188, 0.1) 70%,
                 transparent 100%);
             border-radius: 50%;
-            filter: blur(15px);
+            filter: blur(8px);
             animation: accentFloat2 20s ease-in-out infinite reverse;
+            box-shadow: 0 0 25px rgba(171, 71, 188, 0.3);
         }
 
         @keyframes accentFloat1 {
@@ -631,27 +635,29 @@
             }
         }
 
-        /* Floating Particles - Reduced intensity */
+        /* Beautiful Floating Orbs */
         .particle {
             position: absolute;
-            width: 1px;
-            height: 1px;
-            background: var(--accent);
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, rgba(77, 208, 225, 0.8) 0%, rgba(77, 208, 225, 0.4) 70%, transparent 100%);
             border-radius: 50%;
             animation: float-particle linear infinite;
-            opacity: 0.6;
+            opacity: 0.8;
+            box-shadow: 0 0 6px rgba(77, 208, 225, 0.6);
         }
 
         @keyframes float-particle {
             0% {
-                transform: translateY(100vh) translateX(0);
+                transform: translateY(100vh) translateX(0) scale(0.5);
                 opacity: 0;
             }
             10%, 90% {
-                opacity: 0.3;
+                opacity: 0.8;
+                transform: translateY(50vh) translateX(25px) scale(1);
             }
             100% {
-                transform: translateY(-100px) translateX(50px);
+                transform: translateY(-100px) translateX(50px) scale(0.3);
                 opacity: 0;
             }
         }
