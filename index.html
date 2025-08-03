@@ -986,41 +986,11 @@
         }
 
         .hero-title-animated::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                var(--accent-cyan) 20%,
-                var(--accent-purple) 40%,
-                var(--accent) 60%,
-                var(--accent-purple) 80%,
-                transparent 100%
-            );
-            background-size: 200% 100%;
-            opacity: 0;
-            animation: heroSweep 10s ease-in-out infinite;
-            pointer-events: none;
-            z-index: -1;
+            display: none;
         }
 
         .hero-title-animated::after {
-            content: '';
-            position: absolute;
-            inset: -10px;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(77, 208, 225, 0.1) 0%,
-                rgba(171, 71, 188, 0.1) 50%,
-                transparent 70%
-            );
-            opacity: 0;
-            animation: heroAura 8s ease-in-out infinite;
-            border-radius: 20px;
-            filter: blur(20px);
-            pointer-events: none;
-            z-index: -1;
+            display: none;
         }
 
         @keyframes heroColorShift {
