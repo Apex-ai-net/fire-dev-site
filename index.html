@@ -973,26 +973,16 @@
             font-weight: 900;
             line-height: 0.9;
             margin-bottom: var(--space-lg);
-            background: linear-gradient(
-                90deg,
-                #4dd0e1 0%,
-                #ab47bc 50%,
-                #4dd0e1 100%
-            );
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             color: #4dd0e1;
             letter-spacing: -0.06em;
             font-family: 'Inter', sans-serif;
             animation: 
-                heroGradientFlow 8s ease-in-out infinite,
+                heroColorShift 4s ease-in-out infinite,
                 heroFloat 6s ease-in-out infinite;
             position: relative;
-            will-change: background-position, transform;
+            will-change: color, transform;
             transform-origin: center;
-            display: inline-block;
+            text-shadow: 0 0 20px rgba(77, 208, 225, 0.3);
         }
 
         .hero-title-animated::before {
@@ -1033,12 +1023,14 @@
             z-index: -1;
         }
 
-        @keyframes heroGradientFlow {
+        @keyframes heroColorShift {
             0%, 100% { 
-                background-position: 0% 50%; 
+                color: #4dd0e1;
+                text-shadow: 0 0 20px rgba(77, 208, 225, 0.3);
             }
             50% { 
-                background-position: 100% 50%; 
+                color: #ab47bc;
+                text-shadow: 0 0 20px rgba(171, 71, 188, 0.3);
             }
         }
 
