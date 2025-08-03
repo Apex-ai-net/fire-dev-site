@@ -906,13 +906,9 @@
         .hero {
             padding: calc(var(--space-2xl) + 80px) 0 var(--space-2xl);
             text-align: center;
-            background: 
-                radial-gradient(ellipse at center, rgba(74, 222, 128, 0.05) 0%, transparent 70%),
-                var(--bg-primary);
+            background: radial-gradient(ellipse at center, rgba(74, 222, 128, 0.05) 0%, transparent 70%);
             position: relative;
             overflow: hidden;
-            z-index: 10;
-            min-height: 100vh;
         }
 
         .hero::before {
@@ -936,11 +932,7 @@
 
         .hero-content {
             position: relative;
-            z-index: 15;
-            background: var(--bg-primary);
-            padding: var(--space-xl);
-            border-radius: var(--border-radius-lg);
-            backdrop-filter: blur(20px);
+            z-index: 2;
         }
 
         .hero h1 {
@@ -2063,19 +2055,7 @@
             }
 
             .hero {
-                background: var(--bg-primary);
-                min-height: 100vh;
-                z-index: 10;
-            }
-
-            .hero-content {
-                background: rgba(15, 15, 15, 0.95);
-                padding: var(--space-lg);
-                margin: var(--space-md);
-                border-radius: var(--border-radius-lg);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(77, 208, 225, 0.2);
-                box-shadow: var(--shadow-elevation-3);
+                padding: calc(var(--space-xl) + 80px) 0 var(--space-xl);
             }
 
             .logo {
