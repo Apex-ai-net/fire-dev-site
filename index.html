@@ -1531,6 +1531,326 @@
             width: 100%;
         }
 
+        /* Modern Portfolio Section */
+        .portfolio {
+            padding: var(--space-2xl) 0;
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(77, 208, 225, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(171, 71, 188, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 20% 60%, rgba(38, 198, 218, 0.03) 0%, transparent 50%);
+            animation: portfolioFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes portfolioFloat {
+            0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.9; transform: scale(1.02) rotate(1deg); }
+        }
+
+        .portfolio h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            text-align: center;
+            background: linear-gradient(
+                90deg,
+                var(--accent) 0%,
+                var(--accent-cyan) 25%,
+                var(--accent-purple) 50%,
+                var(--accent-cyan) 75%,
+                var(--accent) 100%
+            );
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleColorShift 8s ease-in-out infinite;
+            letter-spacing: -0.03em;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .portfolio h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            animation: underlineGlow 3s ease-in-out infinite;
+        }
+
+        .portfolio-intro {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: var(--space-xl);
+            position: relative;
+            z-index: 2;
+        }
+
+        .portfolio-card {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-strong);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            position: relative;
+            will-change: transform, box-shadow, border-color;
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--primary-gradient);
+            border-radius: var(--border-radius-xl);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(77, 208, 225, 0.5);
+            box-shadow: 
+                var(--shadow-elevation-4),
+                0 15px 40px rgba(77, 208, 225, 0.2);
+        }
+
+        .portfolio-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .project-image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        /* Project-specific backgrounds using actual screenshots */
+        .intelisense-bg {
+            background-image: url('portfolio-images/Screenshot 2025-08-07 112019.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+
+        .amazon-bg {
+            background-image: url('portfolio-images/Screenshot 2025-08-07 112058.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .portfolio-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-links {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--primary-gradient);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-elevation-2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-content {
+            padding: var(--space-lg);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-md);
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .project-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 0;
+            letter-spacing: -0.02em;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .project-domain {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: rgba(77, 208, 225, 0.1);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(77, 208, 225, 0.2);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-top: var(--space-md);
+        }
+
+        .tech-tag {
+            background: rgba(171, 71, 188, 0.1);
+            color: var(--accent-purple);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(171, 71, 188, 0.3);
+            transition: var(--transition-smooth);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .tech-tag:hover {
+            background: rgba(171, 71, 188, 0.2);
+            border-color: var(--accent-purple);
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Responsive Portfolio */
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .portfolio-card {
+                margin: 0 var(--space-sm);
+            }
+
+            .project-image-container {
+                height: 250px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-sm);
+            }
+
+            .project-content {
+                padding: var(--space-md);
+            }
+
+            .intelisense-bg::before,
+            .amazon-bg::before {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio {
+                padding: var(--space-xl) 0;
+            }
+
+            .portfolio-intro {
+                font-size: 1rem;
+                margin-bottom: var(--space-lg);
+            }
+
+            .project-image-container {
+                height: 200px;
+            }
+
+            .project-content {
+                padding: var(--space-sm);
+            }
+
+            .portfolio-card {
+                margin: 0 var(--space-xs);
+            }
+
+            .intelisense-bg::before,
+            .amazon-bg::before {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+        }
+
         /* Modern Contact Section */
         .contact {
             padding: var(--space-2xl) 0;
@@ -2441,6 +2761,7 @@
                 <ul class="nav-links">
                     <li><a href="#home" class="active magnetic">Home</a></li>
                     <li><a href="#about" class="magnetic">About</a></li>
+                    <li><a href="#portfolio" class="magnetic">Portfolio</a></li>
                     <li><a href="#contact" class="magnetic">Contact</a></li>
                 </ul>
             </nav>
@@ -2494,6 +2815,84 @@
                         <li>Data Services</li>
                         <li>Healthcare</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="reveal">Portfolio</h2>
+            <p class="portfolio-intro reveal">Strategic solutions brought to life. Each project represents our commitment to delivering sophisticated, results-driven technology platforms.</p>
+            
+            <div class="portfolio-grid">
+                <!-- InteliSense Project -->
+                <div class="portfolio-card reveal" data-project="intelisense">
+                    <div class="project-image-container">
+                        <div class="project-image intelisense-bg">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://intelisense.io" target="_blank" rel="noopener noreferrer" class="project-link">
+                                        <span>Visit Site</span>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="m9 18 6-6-6-6"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>InteliSense</h3>
+                            <span class="project-domain">intelisense.io</span>
+                        </div>
+                        <p class="project-description">
+                            Advanced data analytics platform leveraging AI and machine learning to predict corporate expansions before public announcements. Built for commercial real estate professionals to gain competitive intelligence and close deals faster.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Web Scraping</span>
+                            <span class="tech-tag">Railway</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amazon Listing Score Project -->
+                <div class="portfolio-card reveal" data-project="amazon">
+                    <div class="project-image-container">
+                        <div class="project-image amazon-bg">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://amazonlistingscore.io" target="_blank" rel="noopener noreferrer" class="project-link">
+                                        <span>Visit Site</span>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="m9 18 6-6-6-6"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Amazon Listing Score</h3>
+                            <span class="project-domain">amazonlistingscore.io</span>
+                        </div>
+                        <p class="project-description">
+                            AI-powered optimization tool that analyzes Amazon product listings in 30 seconds. Provides actionable recommendations to improve search rankings and conversion rates, helping sellers compete more effectively in Amazon's marketplace.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React 18</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Google AI</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2660,8 +3059,62 @@
                     link.classList.add('active');
                 }
             });
+        }
 
+        // Portfolio interactions
+        function initPortfolioInteractions() {
+            // Add hover effects to portfolio cards
+            document.querySelectorAll('.portfolio-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px)';
+                    this.style.boxShadow = '0 20px 60px rgba(77, 208, 225, 0.25)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '';
+                });
+            });
 
+            // Add click analytics for project links
+            document.querySelectorAll('.project-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const projectName = this.closest('.portfolio-card').dataset.project;
+                    console.log(`Portfolio project visited: ${projectName}`);
+                    
+                    // Add ripple effect
+                    const ripple = document.createElement('div');
+                    ripple.classList.add('ripple');
+                    
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add tech tag hover effects
+            document.querySelectorAll('.tech-tag').forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
+                    this.style.boxShadow = '0 4px 15px rgba(171, 71, 188, 0.3)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                });
+            });
         }
 
         // Throttled scroll event
@@ -2678,6 +3131,9 @@
 
         // Initial call
         updateActiveNav();
+        
+        // Initialize portfolio interactions when DOM is loaded
+        initPortfolioInteractions();
 
         // Add micro-interactions to service items
         document.querySelectorAll('.services-list li').forEach(item => {
